@@ -1,0 +1,12 @@
+e::=...|\,\boldsymbol{letrec}\;x_{1}=e_{1}...x_{n}=e_{n}\;\boldsymbol{in}\;e
+
+
+\frac{\Gamma , \left \langle x_{1},...,x_{n} \right \rangle:(\tau _{1}\times...\times \tau _{n})\vdash \left \langle e_{1},...,e_{n} \right \rangle:(\tau _{1}\times...\times \tau _{n})\;\;\;\; \Gamma , \left \langle x_{1},...,x_{n} \right \rangle:(\tau _{1}\times...\times \tau _{n})\vdash e:\tau}{\Gamma \vdash letrec\:\, x_{1}=e_{1}...x_{n}=e_{n}\;in\;e:\tau}
+
+fix(\lambda x:(\tau_{1}\times ...\times \tau_{n}).e)\rightarrow e[x_{1}:=fix(\lambda x_{1}:\tau_{1}),...,x_{n}:=fix(\lambda x_{n}:\tau_{n})]
+
+\frac{e\rightarrow e'}{fix\; e\rightarrow fix\; e'}
+
+fix\;e\rightarrow e\,(\left \langle fix\;e_{1}, ...\,,fix\;e_{n} \right \rangle)
+
+letrec\;x_{1}=e_{1}\,...x_{n}=e_{n}\;in\;e\equiv let\:\left \langle x_{1}=fix(\lambda x_{1}:\tau_{1}.e_{1}),\,...\,,x_{n}=fix(\lambda x_{n}:\tau_{n}.e_{n}) \right \rangle\ in\ e
